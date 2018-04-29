@@ -13,7 +13,6 @@ export default {
 			form: {
 				email: '',
 				password: '',
-				remember_me: false,
 			},
 		};
 	},
@@ -42,10 +41,13 @@ export default {
 </script>
 
 <template>
-	<v-min-layout class="auth-container">
-		<v-flex slot="get-mini-frame" xs10 offset-xs1 sm6 offset-sm3 md4 offset-md4 class="limited-login-pane">
+	<v-min-layout>
+		<v-flex slot="get-mini-frame" xs10 offset-xs1 sm6 offset-sm3 md4 offset-md4 class="auth-container limited-login-pane">
 			<v-container>
-				<v-card-text class="title3 signin-title no-padding px-0">Sign in to your account </v-card-text>
+				<v-card-text class="xoko-logo px-0">
+					<img src="/static/img/xoko-logo.svg" alt="XOKO" />
+				</v-card-text>
+				<v-card-text class="title3 signin-title px-2">Sign in to your account </v-card-text>
 				<form @submit.prevent="validateForm" class="app-form">
 					<v-container grid-list-md text-xs-center class="no-padding">
 						<v-layout row wrap>
@@ -60,7 +62,8 @@ export default {
 									data-vv-delay="2"
 									v-validate="'required|email'"
 									data-vv-name="email"
-									hint="example@premiumer.io"
+									hint="example@xoko.io"
+									solo
 								></v-text-field>
 							</v-flex>
 							<v-flex xs12>
@@ -75,17 +78,8 @@ export default {
 									v-model="form.password"
 									:error-messages="errors.collect('password')"
 									type="password"
+									solo
 								/></v-text-field>
-							</v-flex>
-							<v-flex xs12>
-								<v-checkbox
-									label="Keep me signed in"
-									v-model="form.remember_me"
-									color="primary"
-									:value="form.remember_me"
-									hide-details
-									class="checkbox"
-								></v-checkbox>
 							</v-flex>
 							<v-flex xs12 login-footer>
 								<div class="xs12 action">
@@ -112,4 +106,13 @@ export default {
 		<v-card-text slot="secondary-footer" class="pa-0"></v-card-text>
 	</v-min-layout>
 </template>
+
+<style lang="stylus">
+.auth-container
+	padding-top 15vh
+	.xoko-logo
+		text-align center
+		img
+			max-width 210px
+</style>
 

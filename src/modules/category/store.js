@@ -6,30 +6,30 @@ import * as Api from '@/api';
 import * as types from '@/store/mutation-types';
 
 const state = {
-	fetchingOutlets: false,
-	outlets: [],
+	fetchingCategories: false,
+	categories: [],
 };
 
 const getters = {
-	fetchingOutlets: state => state.fetchingOutlets,
+	fetchingCategories: state => state.fetchingCategories,
 
-	outlets: state => state.outlets,
+	categories: state => state.categories,
 };
 
 const mutations = {
-	[types.FETCH_OUTLETS](state, payload) {
-		state.fetchingOutlets = true;
-		Api.getOutlets(payload)
+	[types.FETCH_CATEGORIES](state, payload) {
+		state.fetchingCategories = true;
+		Api.getCategories(payload)
 			.then(response => {
-				state.fetchingOutlets = false;
+				state.fetchingCategories = false;
 
-				console.log('get outlets response', response);
+				console.log('get categories response', response);
 
-				state.outlets = [...response.body.data];
+				state.categories = [...response.body.data];
 			})
 			.catch(err => {
-				state.fetchingOutlets = false;
-				console.log('get outlets error', err);
+				state.fetchingCategories = false;
+				console.log('get categories error', err);
 			});
 	},
 };

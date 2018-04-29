@@ -1,6 +1,6 @@
 
 <script>
-import Vue from 'vue';
+// import Vue from 'vue';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -11,7 +11,7 @@ export default {
 		...mapGetters({
 			fetchingProducts: 'fetchingProducts',
 			products: 'products',
-		});
+		}),
 	},
 	watch: {},
 	methods: {},

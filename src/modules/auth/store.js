@@ -4,7 +4,6 @@
 import Vue from 'vue';
 import * as Api from '@/api';
 import * as types from '@/store/mutation-types';
-import * as ErrorActions from '@/modules/shared/services/errorActions';
 import VueNotifications from 'vue-notifications';
 
 const state = {
@@ -63,7 +62,7 @@ const mutations = {
 		Vue.router.push({ name: 'login.index' });
 	},
 
-	[types.FORGOT_PASSWORD](state, payload) {
+	[types.FORGOT_PASSWORD](state) {
 		state.submitForgotPassword = true;
 		setTimeout(() => {
 			state.submitForgotPassword = true;

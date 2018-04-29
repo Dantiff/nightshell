@@ -1,6 +1,6 @@
 
 <script>
-import Vue from 'vue';
+// import Vue from 'vue';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -9,14 +9,14 @@ export default {
 	},
 	computed: {
 		...mapGetters({
-			fetchingProducts: 'fetchingProducts',
-			products: 'products',
-		});
+			fetchingOutlets: 'fetchingOutlets',
+			outlets: 'outlets',
+		}),
 	},
 	watch: {},
 	methods: {},
 	mounted() {
-		this.$store.commit('GET_PRODUCTS');
+		this.$store.commit('GET_OUTLETS');
 	},
 };
 </script>

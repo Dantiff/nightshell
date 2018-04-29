@@ -17,7 +17,7 @@ const getters = {
 };
 
 const mutations = {
-	[types.FETCH_SITE_DATA](state, payload) {
+	[types.FETCH_PRODUCTS](state, payload) {
 		state.fetchingProducts = true;
 		Api.getProducts(payload)
 			.then(response => {
