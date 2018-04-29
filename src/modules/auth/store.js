@@ -7,7 +7,6 @@ import * as types from '@/store/mutation-types';
 import VueNotifications from 'vue-notifications';
 
 const state = {
-	loggingIn: true,
 	submitLogin: false,
 	authUser: JSON.parse(localStorage.getItem('auth_user')),
 	isAuthenticated: !!localStorage.getItem('auth_user'),
@@ -16,8 +15,6 @@ const state = {
 };
 
 const getters = {
-	loggingIn: state => state.loggingIn,
-
 	submitLogin: state => state.submitLogin,
 
 	authUser: state => state.authUser,

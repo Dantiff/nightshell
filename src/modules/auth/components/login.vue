@@ -47,7 +47,7 @@ export default {
 				<v-card-text class="xoko-logo px-0 text-xs-center">
 					<img src="/static/img/xoko-logo.svg" alt="XOKO" />
 				</v-card-text>
-				<v-card-text class="title3 signin-title px-2 text-xs-center">Sign in to your account </v-card-text>
+				<v-card-text class="title3 signin-title px-2 text-xs-center app-c-primary--text">Sign in to your account </v-card-text>
 				<form @submit.prevent="validateForm" class="app-form">
 					<v-container grid-list-md text-xs-center class="no-padding">
 						<v-layout row wrap>
@@ -64,6 +64,7 @@ export default {
 									data-vv-name="email"
 									hint="example@xoko.io"
 									solo
+									color="app-c-primary"
 									class="elevation-0"
 								></v-text-field>
 							</v-flex>
@@ -79,6 +80,7 @@ export default {
 									:error-messages="errors.collect('password')"
 									type="password"
 									solo
+									color="app-c-primary"
 									class='password elevation-0'
 								/></v-text-field>
 							</v-flex>
@@ -88,7 +90,7 @@ export default {
 										type="submit"
 										:disabled="this.errors.items.length !== 0"
 										:loading="submitLogin"
-										class="btn-blue no-margin app-btn px-3"
+										class="app-c-blue no-margin px-3"
 										primary
 										dark
 									 >Sign In</v-btn>

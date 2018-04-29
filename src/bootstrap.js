@@ -68,10 +68,10 @@ router.beforeEach((to, from, next) => {
 	} else if (to.matched.some(m => m.meta.guest) && store.state.auth.isAuthenticated) {
 		/*
      * If the user is authenticated and visits
-     * an guest page, redirect to the dashboard page
+     * an guest page, redirect to the outlets page
      */
 		next({
-			name: 'dashboard.index',
+			name: 'outlets.index',
 		});
 	} else {
 		next();
@@ -120,7 +120,7 @@ window.$ = window.jQuery = jQuery;
  *
  * https://www.npmjs.com/package/vee-validate
  */
-import VeeValidate, { Validator } from 'vee-validate';
+import VeeValidate from 'vee-validate';
 
 const config = {
 	errorBagName: 'errors', // change if property conflicts.
@@ -143,18 +143,6 @@ const config = {
 };
 
 Vue.use(VeeValidate, config);
-
-Validator.extend('passwordConfirmation', {
-	getMessage(field, [password, value]) {
-		return value === password || 'Passwords do not match';
-	},
-	validate(value, [password]) {
-		if (value === undefined || value === null) {
-			return false;
-		}
-		return value === password;
-	},
-});
 
 /* ============
  * Styling
@@ -233,67 +221,6 @@ VueNotifications.config.timeout = 8000;
 Vue.use(VueNotifications, options);
 
 /**
- * Setup vue-highcharts
- */
-import VueHighcharts from 'vue-highcharts';
-import Highcharts from 'highcharts';
-
-// load these modules as your need
-import loadStock from 'highcharts/modules/stock';
-import loadMap from 'highcharts/modules/map';
-import loadDrilldown from 'highcharts/modules/drilldown';
-// some charts like solid gauge require `highcharts-more.js`, you can find it in official demo.
-import loadHighchartsMore from 'highcharts/highcharts-more';
-import loadSolidGauge from 'highcharts/modules/solid-gauge';
-import wordCloud from 'highcharts/modules/wordcloud';
-import variablePie from 'highcharts/modules/variable-pie';
-
-loadStock(Highcharts);
-loadMap(Highcharts);
-loadDrilldown(Highcharts);
-loadHighchartsMore(Highcharts);
-loadSolidGauge(Highcharts);
-variablePie(Highcharts);
-wordCloud(Highcharts);
-
-// Now you can use Highstock, Highmaps, drilldown and solid gauge.
-Vue.use(VueHighcharts, { Highcharts });
-
-/**
- * Setup vue-google-maps
- */
-import * as VueGoogleMaps from 'vue2-google-maps';
-
-Vue.use(VueGoogleMaps, {
-	load: {
-		key: 'AIzaSyBD-HS_7rOrfHc3O6hgTyBk31rUAnwD78o',
-		libraries: 'places,drawing,visualization', // This is required if you use the Autocomplete plugin
-		// OR: libraries: 'places,drawing'
-		// OR: libraries: 'places,drawing,visualization'
-		// (as you require)
-	},
-});
-
-/**
- * Setup VueScrollTo
- */
-const VueScrollTo = require('vue-scrollto');
-
-Vue.use(VueScrollTo);
-// You can also pass in the default options
-Vue.use(VueScrollTo, {
-	container: 'body',
-	duration: 500,
-	easing: 'ease',
-	offset: 0,
-	cancelable: true,
-	onDone: false,
-	onCancel: false,
-	x: false,
-	y: true,
-});
-
-/**
  * Setup vue-resource
  */
 import VueResource from 'vue-resource';
@@ -301,9 +228,10 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
 Vue.http.interceptors.push((request, next) => {
+	request.headers.set('Content-Type', 'application/json');
 	// eslint-disable-next-line
   request.headers.set('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
-	request.headers.set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+	request.headers.set('Content-Type', `Bearer ${localStorage.getItem('id_token')}`);
 	next();
 });
 Vue.http.options.root = process.env.API_LOCATION;
@@ -325,7 +253,6 @@ Vue.http.interceptors.push((request, next) => {
 		if (response.status === 401) {
 			try {
 				localStorage.removeItem('auth_user');
-				localStorage.removeItem('id_token');
 				store.state.isAuthenticated = false;
 			} catch (err) {
 				console.log(err);

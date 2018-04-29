@@ -20,12 +20,12 @@
 // VARIABLES
 app-c-blue = #193340;
 app-c-gold = #F29419;
-
+app-c-primary = #828282;
 
 // GENERAL
 .application.theme--light,
 html, body, .application
-	background #
+	background #fff
 	color app-c-blue
 	font-family "Montserrat", Helvetica, Arial, sans-serif
 	font-weight normal
@@ -33,9 +33,7 @@ html, body, .application
 	font-stretch normal
 	// line-height normal
 	letter-spacing normal
-
-
-// EXTENDED VUETIFY COLOR PALLET
+	
 .app-c-green
 	background-color #41b912 !important
 .app-c-green--text
@@ -44,6 +42,10 @@ html, body, .application
 	background-color #f47c47 !important
 .app-c-red--text
 	color #f47c47 !important
+.app-c-primary
+	background-color app-c-primary !important
+.app-c-primary--text
+	color  app-c-primary !important
 .app-c-blue
 	background-color app-c-blue !important
 .app-c-blue--text
@@ -151,7 +153,10 @@ a,.app-link-gold
 .router-link-exact-active
 	li
 		background-color #e0e0e0 !important
-	
+
+// INPUTS
+.input-group
+	border 1px solid
 
 
 
