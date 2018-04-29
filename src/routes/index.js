@@ -38,18 +38,36 @@ export default [
 		component: require('@/modules/auth/components/forgotPassword.vue'),
 		meta: { guest: true },
 	},
+
+	// Outlets
 	{
-		path: '/:tokenId/reset-password',
-		name: 'reset.index',
-		component: require('@/modules/auth/components/resetPassword.vue'),
-		meta: { guest: true },
+		path: '/outlets',
+		name: 'outlets.index',
+		component: require('@/modules/outlet/components/index.vue'),
+		meta: { auth: true },
 	},
 
-	// Dashboard
+	// Categories
+	{
+		path: '/:outlet/categories',
+		name: 'categories.index',
+		component: require('@/modules/category/components/index.vue'),
+		meta: { auth: true },
+	},
+
+	// Products
+	{
+		path: '/:outlet/:category/products',
+		name: 'products.index',
+		component: require('@/modules/product/components/index.vue'),
+		meta: { auth: true },
+	},
+
+	// Make sales
 	// {
-	// 	path: '/dashboard',
-	// 	name: 'dashboard.index',
-	// 	component: require('@/modules/dashboard/components/index.vue'),
+	// 	path: '/sales',
+	// 	name: 'sales.index',
+	// 	component: require('@/modules/sale/components/index.vue'),
 	// 	meta: { auth: true },
 	// },
 

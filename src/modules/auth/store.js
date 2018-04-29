@@ -33,7 +33,7 @@ const getters = {
 const mutations = {
 	[types.LOGIN](state, payload) {
 		state.submitLogin = true;
-		Api.login(payload)
+		Api.registerApp(payload)
 			.then(response => {
 				state.submitLogin = false;
 
@@ -41,12 +41,12 @@ const mutations = {
 
 				state.authUser = { ...response.body.data };
 
-				console.log('login success response', err);
+				console.log('login success response', response);
 
 				localStorage.setItem('auth_user', JSON.stringify(response.body.data));
 
 				VueNotifications.success({ title: 'Login Success!' });
-				Vue.router.push({ name: 'products.index' });
+				Vue.router.push({ name: 'outlet.index' });
 			})
 			.catch(err => {
 				state.isAuthenticated = false;
@@ -71,20 +71,7 @@ const mutations = {
 	},
 };
 
-const actions = {
-	verifyUser({ commit }, creds) {
-		commit('VERIFY_USER', creds);
-	},
-	login({ commit }, creds) {
-		commit('LOGIN', creds);
-	},
-	checkToken({ commit }) {
-		commit('CHECK_TOKEN');
-	},
-	invalidToken({ commit }) {
-		commit('INVALID_TOKEN');
-	},
-};
+const actions = {};
 
 export default {
 	state,
