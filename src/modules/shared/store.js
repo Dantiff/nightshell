@@ -1,5 +1,5 @@
 /**
- * Created by daniel on 03/01/2018.
+ * Created by daniel on 29/04/2018.
  */
 // import Vue from 'vue';
 // import * as types from '@/store/mutation-types';

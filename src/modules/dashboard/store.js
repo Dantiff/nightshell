@@ -1,5 +1,5 @@
 /**
- * Created by daniel on 26/08/2017.
+ * Created by daniel on 29/04/2018.
  */
 // import Vue from 'vue';
 import * as DashboardApi from '@/api/AuthApi';
