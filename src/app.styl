@@ -1,0 +1,594 @@
+/* ============
+ * Main Stylesheet
+ * ============
+ *
+ * Used for the global application styling.
+ *
+ * The stylus CSS-preprocessor is used for this boilerplate.
+ * If you don't want to use Stylus, that's fine!
+ * Replace the stylus directory with the CSS preprocessor you want.
+ * Require the stylesheet in the bootstrap.js file & install the webpack loader.
+ *
+ * It's that easy...
+ *
+ * http://stylus-lang.com/
+ */
+
+ /** Vuetify Stylus Styles */
+@import './../node_modules/vuetify/src/stylus/main';
+
+
+// GENERAL
+.application.theme--light,
+html, body, .application
+	background #ebebe6
+	color #4f6973
+	font-family "Montserrat", Helvetica, Arial, sans-serif
+	font-weight normal
+	font-style normal
+	font-stretch normal
+	// line-height normal
+	letter-spacing normal
+
+
+// EXTENDED COLOR PALLET
+.app-c-green
+	background-color #41b912 !important
+.app-c-green--text
+	color #41b912 !important
+.app-c-red
+	background-color #f47c47 !important
+.app-c-red--text
+	color #f47c47 !important
+.app-c-blue
+	background-color #1ba7fc !important
+.app-c-blue--text
+	color #1ba7fc !important
+.app-c-grey
+	background-color #e0e0e0 !important
+.app-c-grey--text
+	color #e0e0e0 !important
+.app-c-grey-dark
+	background-color #a8a8a8 !important
+.app-c-grey-dark--text
+	color #a8a8a8 !important
+.app-c-info
+	background-color #56bee6 !important
+.app-c-info--text
+	color #56bee6 !important
+.app-c-proceed
+	background-color #52a1fd !important
+.app-c-proceed--text
+	color #52a1fd !important
+.transparent
+	background-color transparent !important
+
+// HEADERS and TEXT
+.txt-uppercase
+	text-transform uppercase
+.txt-capitalize
+	text-transform capitalize
+.txt-nocase
+	text-transform none !important
+.txt-bold
+	font-weight bold
+.pointer
+	cursor pointer
+	cursor hand
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6
+	line-height 1.1
+	font-weight 400
+	color #13242a
+	font-family "PT Serif", "Times New Roman", Times, serif
+h1,.h1
+	font-size 28px
+	line-height 1.5
+	font-weight normal
+	@media screen and (min-width: 768px)
+		font-size 54px
+		line-height 1.11111
+h2,.h2
+	font-size 24px
+	line-height 1.5
+	font-weight normal
+	@media screen and (min-width: 768px)
+		font-size 46px
+		line-height 1.11111
+.title1,.title2,.title3,.title4,.title5
+	line-height 1.1
+	color #13242a
+	font-family "Montserrat", Helvetica, Arial, sans-serif
+.title3
+	font-size 20px
+	color #5d6d80
+	font-weight 600
+.text-basic
+	font-size 16px
+	line-height 24px
+	@media screen and (min-width: 600px)
+		font-size 18px
+		line-height 30px
+
+// VISUAL DEGREE
+.p-absolute
+	position absolute !important
+.p-relative
+	position relative !important
+.opac-1
+		opacity 1 !important
+.full-width
+	width 100% !important
+.full-height
+	height 100% !important
+
+
+// LINKS
+a,.app-link-light
+	cursor pointer
+	text-decoration none
+	color #9cbedf !important
+	&:hover
+		text-decoration none
+		color #e0e0e0 !important
+		li,button,span
+			color #e0e0e0 !important
+			font-weight bold
+.app-link-dark
+	cursor pointer
+	text-decoration none
+	color #17272f !important
+	&:hover
+		text-decoration none
+		color #e0e0e0 !important
+		li,button,span
+			color #e0e0e0 !important
+			font-weight bold
+.app-link-grey
+	cursor pointer
+	text-decoration none
+	color #e0e0e0 !important
+	&:hover
+		text-decoration none
+		color #9cbedf !important
+		li,button,span
+			color #9cbedf !important
+			font-weight bold
+.active
+	li
+		background-color #e0e0e0 !important
+.link-active
+	li,button,span
+		color #e0e0e0 !important
+		font-weight bold
+.router-link-exact-active
+	li
+		background-color #e0e0e0 !important
+	
+
+
+
+
+// FONTS: MONTSERRAT
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Montserrat Regular'), local('Montserrat-Regular'), local('Montserrat'), url(/static/fonts/montserrat/Montserrat-Regular.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: italic;
+	font-weight: normal;
+	src: local('Montserrat Italic'), local('Montserrat-Italic'), url(/static/fonts/montserrat/Montserrat-Italic.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 100;
+	src: local('Montserrat Thin'), local('Montserrat-Thin'), url(/static/fonts/montserrat/Montserrat-Thin.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: italic;
+	font-weight: 100;
+	src: local('Montserrat Thin Italic'), local('Montserrat-ThinItalic'), url(/static/fonts/montserrat/Montserrat-Thin-Italic.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 200;
+	src: local('Montserrat ExtraLight'), local('Montserrat-ExtraLight'), url(/static/fonts/montserrat/Montserrat-ExtraLight.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: italic;
+	font-weight: 200;
+	src: local('Montserrat ExtraLight Italic'), local('Montserrat-ExtraLightItalic'), url(/static/fonts/montserrat/Montserrat-ExtraLight-Italic.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Montserrat Light'), local('Montserrat-Light'), url(/static/fonts/montserrat/Montserrat-Light.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: italic;
+	font-weight: 300;
+	src: local('Montserrat Light Italic'), local('Montserrat-LightItalic'), url(/static/fonts/montserrat/Montserrat-Light-Italic.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Montserrat Regular'), local('Montserrat-Regular'), local('Montserrat'), url(/static/fonts/montserrat/Montserrat-Regular.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Montserrat Italic'), local('Montserrat-Italic'), url(/static/fonts/montserrat/Montserrat-Italic.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Montserrat Medium'), local('Montserrat-Medium'), url(/static/fonts/montserrat/Montserrat-Medium.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: italic;
+	font-weight: 500;
+	src: local('Montserrat Medium Italic'), local('Montserrat-MediumItalic'), url(/static/fonts/montserrat/Montserrat-MediumItalic.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 600;
+	src: local('Montserrat Semibold'), local('Montserrat-Semibold'), url(/static/fonts/montserrat/Montserrat-SemiBold.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: italic;
+	font-weight: 600;
+	src: local('Montserrat Semibold Italic'), local('Montserrat-SemiboldItalic'), url(/static/fonts/montserrat/Montserrat-SemiboldItalic.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Montserrat Bold'), local('Montserrat-Bold'), url(/static/fonts/montserrat/Montserrat-Bold.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Montserrat Bold Italic'), local('Montserrat-BoldItalic'), url(/static/fonts/montserrat/Montserrat-BoldItalic.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 800;
+	src: local('Montserrat ExtraBold'), local('Montserrat-ExtraBold'), url(/static/fonts/montserrat/Montserrat-ExtraBold.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: italic;
+	font-weight: 800;
+	src: local('Montserrat ExtraBold Italic'), local('Montserrat-ExtraBoldItalic'), url(/static/fonts/montserrat/Montserrat-ExtraBoldItalic.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 900;
+	src: local('Montserrat Black'), local('Montserrat-Black'), url(/static/fonts/montserrat/Montserrat-Black.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: italic;
+	font-weight: 900;
+	src: local('Montserrat Black Italic'), local('Montserrat-BlackItalic'), url(/static/fonts/montserrat/Montserrat-BlackItalic.otf) format('opentype');
+}
+
+
+// FONTS: LATO
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Lato Regular'), local('Lato-Regular'), local('Lato'), url(/static/fonts/lato/Lato-Regular.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: normal;
+	src: local('Lato Italic'), local('Lato-Italic'), url(/static/fonts/lato/Lato-Italic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 100;
+	src: local('Lato Hairline'), local('Lato-Hairline'), url(/static/fonts/lato/Lato-Hairline.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 100;
+	src: local('Lato Hairline Italic'), local('Lato-HairlineItalic'), url(/static/fonts/lato/Lato-Hairline-Italic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 200;
+	src: local('Lato Thin'), local('Lato-Thin'), url(/static/fonts/lato/Lato-Thin.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 200;
+	src: local('Lato Thin Italic'), local('Lato-ThinItalic'), url(/static/fonts/lato/Lato-Thin-Italic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Lato Light'), local('Lato-Light'), url(/static/fonts/lato/Lato-Light.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 300;
+	src: local('Lato Light Italic'), local('Lato-LightItalic'), url(/static/fonts/lato/Lato-Light-Italic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Lato Regular'), local('Lato-Regular'), local('Lato'), url(/static/fonts/lato/Lato-Regular.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Lato Italic'), local('Lato-Italic'), url(/static/fonts/lato/Lato-Italic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Lato Medium'), local('Lato-Medium'), url(/static/fonts/lato/Lato-Medium.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 500;
+	src: local('Lato Medium Italic'), local('Lato-MediumItalic'), url(/static/fonts/lato/Lato-MediumItalic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 600;
+	src: local('Lato Semibold'), local('Lato-Semibold'), url(/static/fonts/lato/Lato-Semibold.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 600;
+	src: local('Lato Semibold Italic'), local('Lato-SemiboldItalic'), url(/static/fonts/lato/Lato-SemiboldItalic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Lato Bold'), local('Lato-Bold'), url(/static/fonts/lato/Lato-Bold.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(/static/fonts/lato/Lato-BoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 800;
+	src: local('Lato Heavy'), local('Lato-Heavy'), url(/static/fonts/lato/Lato-Heavy.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 800;
+	src: local('Lato Heavy Italic'), local('Lato-HeavyItalic'), url(/static/fonts/lato/Lato-HeavyItalic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 900;
+	src: local('Lato Black'), local('Lato-Black'), url(/static/fonts/lato/Lato-Black.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 900;
+	src: local('Lato Black Italic'), local('Lato-BlackItalic'), url(/static/fonts/lato/Lato-BlackItalic.ttf) format('truetype');
+}
+
+// FONTS: ROBOTO
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-Regular.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-Italic.ttf') format('truetype');
+		font-weight: normal;
+		font-style: italic;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-Thin.ttf') format('truetype');
+		font-weight: 100;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-ThinItalic.ttf') format('truetype');
+		font-weight: 100;
+		font-style: italic;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/RobotoCondensed-Light.ttf') format('truetype');
+		font-weight: 200;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/RobotoCondensed-LightItalic.ttf') format('truetype');
+		font-weight: 200;
+		font-style: italic;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-Light.ttf') format('truetype');
+		font-weight: 300;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-LightItalic.ttf') format('truetype');
+		font-weight: 300;
+		font-style: italic;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-Regular.ttf') format('truetype')
+		font-weight: 400;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-Italic.ttf') format('truetype');
+		font-weight: 400;
+		font-style: italic;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/RobotoCondensed-Regular.ttf') format('truetype');
+		font-weight: 500;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/RobotoCondensed-Italic.ttf') format('truetype');
+		font-weight: 500;
+		font-style: italic;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-Medium.ttf') format('truetype')
+		font-weight: 600;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-MediumItalic.ttf') format('truetype');
+		font-weight: 600;
+		font-style: italic;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-Bold.ttf') format('truetype');
+		font-weight: 700;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-BoldItalic.ttf') format('truetype');
+		font-weight: 700;
+		font-style: italic;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/RobotoCondensed-Bold.ttf') format('truetype');
+		font-weight: 800;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/RobotoCondensed-BoldItalic.ttf') format('truetype');
+		font-weight: 800;
+		font-style: italic;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-Black.ttf') format('truetype');
+		font-weight: 900;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'Roboto';
+		src: url('/static/fonts/roboto/Roboto-BlackItalic.ttf') format('truetype');
+		font-weight: 900;
+		font-style: italic;
+}
+
