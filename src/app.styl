@@ -17,12 +17,16 @@
  /** Vuetify Stylus Styles */
 @import './../node_modules/vuetify/src/stylus/main';
 
+// VARIABLES
+app-c-blue = #193340;
+app-c-gold = #F29419;
+
 
 // GENERAL
 .application.theme--light,
 html, body, .application
-	background #ebebe6
-	color #4f6973
+	background #
+	color app-c-blue
 	font-family "Montserrat", Helvetica, Arial, sans-serif
 	font-weight normal
 	font-style normal
@@ -31,7 +35,7 @@ html, body, .application
 	letter-spacing normal
 
 
-// EXTENDED COLOR PALLET
+// EXTENDED VUETIFY COLOR PALLET
 .app-c-green
 	background-color #41b912 !important
 .app-c-green--text
@@ -41,13 +45,13 @@ html, body, .application
 .app-c-red--text
 	color #f47c47 !important
 .app-c-blue
-	background-color #193340 !important
+	background-color app-c-blue !important
 .app-c-blue--text
-	color  #193340 !important
+	color  app-c-blue !important
 .app-c-gold
-	background-color  #F29419 !important
+	background-color  app-c-gold !important
 .app-c-gold--text
-	color  #F29419 !important
+	color  app-c-gold !important
 .app-c-grey
 	background-color #e0e0e0 !important
 .app-c-grey--text
@@ -82,7 +86,7 @@ html, body, .application
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6
 	margin: 0px 0px 14px;
 	font-weight 400
-	color #193340
+	color app-c-blue
 	font-family "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
 h1,.h1
 	font-size 28px
@@ -100,11 +104,11 @@ h2,.h2
 		line-height 1.11111
 .title1,.title2,.title3,.title4,.title5
 	line-height 1.1
-	color #13242a
+	color app-c-blue
 	font-family "Montserrat", Helvetica, Arial, sans-serif
 .title3
 	font-size 20px
-	color #5d6d80
+	color app-c-blue
 	font-weight 600
 .text-basic
 	font-size 16px
@@ -127,35 +131,15 @@ h2,.h2
 
 
 // LINKS
-a,.app-link-light
+a,.app-link-gold
 	cursor pointer
 	text-decoration none
-	color #9cbedf !important
+	color app-c-gold !important
 	&:hover
 		text-decoration none
-		color #e0e0e0 !important
+		color app-c-blue !important
 		li,button,span
-			color #e0e0e0 !important
-			font-weight bold
-.app-link-dark
-	cursor pointer
-	text-decoration none
-	color #17272f !important
-	&:hover
-		text-decoration none
-		color #e0e0e0 !important
-		li,button,span
-			color #e0e0e0 !important
-			font-weight bold
-.app-link-grey
-	cursor pointer
-	text-decoration none
-	color #e0e0e0 !important
-	&:hover
-		text-decoration none
-		color #9cbedf !important
-		li,button,span
-			color #9cbedf !important
+			color app-c-blue !important
 			font-weight bold
 .active
 	li

@@ -44,10 +44,10 @@ export default {
 	<v-min-layout>
 		<v-flex slot="get-mini-frame" xs10 offset-xs1 sm6 offset-sm3 md4 offset-md4 class="auth-container limited-login-pane">
 			<v-container>
-				<v-card-text class="xoko-logo px-0">
+				<v-card-text class="xoko-logo px-0 text-xs-center">
 					<img src="/static/img/xoko-logo.svg" alt="XOKO" />
 				</v-card-text>
-				<v-card-text class="title3 signin-title px-2">Sign in to your account </v-card-text>
+				<v-card-text class="title3 signin-title px-2 text-xs-center">Sign in to your account </v-card-text>
 				<form @submit.prevent="validateForm" class="app-form">
 					<v-container grid-list-md text-xs-center class="no-padding">
 						<v-layout row wrap>
@@ -64,6 +64,7 @@ export default {
 									data-vv-name="email"
 									hint="example@xoko.io"
 									solo
+									class="elevation-0"
 								></v-text-field>
 							</v-flex>
 							<v-flex xs12>
@@ -74,11 +75,11 @@ export default {
 									data-vv-delay="2"
 									v-validate="'required'"
 									data-vv-name="password"
-									class='password'
 									v-model="form.password"
 									:error-messages="errors.collect('password')"
 									type="password"
 									solo
+									class='password elevation-0'
 								/></v-text-field>
 							</v-flex>
 							<v-flex xs12 login-footer>
@@ -111,7 +112,6 @@ export default {
 .auth-container
 	padding-top 15vh
 	.xoko-logo
-		text-align center
 		img
 			max-width 210px
 </style>
