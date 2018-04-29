@@ -14,7 +14,9 @@ import createLogger from 'vuex/dist/logger';
 // Modules
 import shared from '@/modules/shared/store';
 import auth from '@/modules/auth/store';
-import dashboard from '@/modules/dashboard/store';
+import outlet from '@/modules/outlet/store';
+import category from '@/modules/category/store';
+import product from '@/modules/product/store';
 
 Vue.use(Vuex);
 
@@ -37,7 +39,9 @@ export default new Vuex.Store({
 	modules: {
 		shared,
 		auth,
-		dashboard,
+		outlet,
+		category,
+		product,
 	},
 
 	/**

@@ -9,14 +9,14 @@ export default {
 	},
 	computed: {
 		...mapGetters({
-			fetchingProducts: 'fetchingProducts',
-			products: 'products',
+			fetchingOutlets: 'fetchingOutlets',
+			outlets: 'outlets',
 		});
 	},
 	watch: {},
 	methods: {},
 	mounted() {
-		this.$store.commit('GET_PRODUCTS');
+		this.$store.commit('FETCH_PRODUCTS');
 	},
 };
 </script>
