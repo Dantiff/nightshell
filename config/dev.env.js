@@ -3,5 +3,5 @@ var prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API_LOCATION: '"http://to-premium-dev-api"',
+  API_LOCATION: '"https://sandbox.bambapos.com"',
 })

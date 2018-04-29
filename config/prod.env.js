@@ -1,4 +1,4 @@
 module.exports = {
   NODE_ENV: '"production"',
-  API_LOCATION: '"http://to-premium-prod-api"',
+  API_LOCATION: '"https://app.bambapos.com"',
 }
