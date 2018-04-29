@@ -1,6 +1,6 @@
-# mercury-frontend
+# XOKO
 
-> The frontend app for project PREMIUM, a freelance essay writting platform
+> The frontend app for project XOKO, a sales monotiring platform
 
 ## Build Setup
 
