@@ -229,9 +229,6 @@ Vue.use(VueResource);
 
 Vue.http.interceptors.push((request, next) => {
 	request.headers.set('Content-Type', 'application/json');
-	// eslint-disable-next-line
-  request.headers.set('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
-	request.headers.set('Content-Type', `Bearer ${localStorage.getItem('id_token')}`);
 	next();
 });
 Vue.http.options.root = process.env.API_LOCATION;
