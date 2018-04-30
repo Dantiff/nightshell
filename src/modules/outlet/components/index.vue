@@ -16,6 +16,7 @@ export default {
 				{ text: 'Address', value: 'address' },
 				{ text: 'Phone Number', value: 'phone' },
 				{ text: 'Email', value: 'email' },
+				{ text: '', value: 'visit' },
 			],
 		};
 	},
@@ -31,10 +32,13 @@ export default {
 			this.$store.commit('SEARCH_OUTLETS', { search: this.searchOutlets.toLowerCase() });
 		},
 	},
-	methods: {},
+	methods: {
+		visitOutlet(outlet) {
+			this.$router.push({ name: 'categories.index', params: { outlet: outlet.id } });
+		},
+	},
 	mounted() {
 		this.$store.commit('FETCH_OUTLETS', { ...this.appTokens });
-		console.log('Mounted with data', this.outlets);
 	},
 };
 </script>
@@ -72,13 +76,20 @@ export default {
 				    :items="outlets"
 				    hide-actions
 				    :loading="fetchingOutlets"
-				    class="products-card elevation-1"
+				    class="products-table elevation-1"
 				  >
 				    <template slot="items" slot-scope="props">
-				      <td>{{ props.item.name }}</td>
-				      <td class="text-xs-left">{{ props.item.address }}</td>
-				      <td class="text-xs-left">{{ props.item.phone }}</td>
-				      <td class="text-xs-left">{{ props.item.email }}</td>
+				    	<tr class="product-row" @click="visitOutlet(props.item)">
+					      <td>{{ props.item.name }}</td>
+					      <td class="text-xs-left">{{ props.item.address }}</td>
+					      <td class="text-xs-left">{{ props.item.phone }}</td>
+					      <td class="text-xs-left">{{ props.item.email }}</td>
+					      <td class="text-xs-left icon-box">
+					      	<v-icon
+					      		color="app-c-blue"
+					      	>remove_red_eye</v-icon>
+					      </td>
+					    </tr>
 				    </template>
 				  </v-data-table>
 				</v-flex>
@@ -88,18 +99,22 @@ export default {
 </template>
 
 <style lang="stylus">
+app-c-gold = #F29419;
+
 .products-index-container
 	padding 12px 20px
 	background-color #ebebe6
-	.products-card
+	.products-table
 		min-height 40vh
 		background-color #fffffe
 		margin 15px
-		box-shadow 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
-		transition all 0.4s ease-in-out
-		&:hover
-			box-shadow 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
-		.welcome
-			color blue
+		.product-row
+			cursor pointer
+			transition all 0.4s ease-in-out
+			.icon
+				cursor pointer
+			&:hover
+				.icon
+					color app-c-gold !important
 
 </style>
