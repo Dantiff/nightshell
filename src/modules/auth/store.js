@@ -58,7 +58,6 @@ const mutations = {
 				};
 				localStorage.setItem('app_tokens', JSON.stringify(state.appTokens));
 				Vue.router.push({ name: 'outlets.index' });
-				console.log('gone to outlets');
 			});
 	},
 

@@ -4,6 +4,7 @@
 // import Vue from 'vue';
 import * as Api from '@/api';
 import * as types from '@/store/mutation-types';
+import { defaultCategories } from '@/store/mockData';
 
 const state = {
 	fetchingCategories: false,
@@ -13,7 +14,7 @@ const state = {
 const getters = {
 	fetchingCategories: state => state.fetchingCategories,
 
-	categories: state => state.categories,
+	categories: state => (state.categories.length ? state.categories : defaultCategories),
 };
 
 const mutations = {

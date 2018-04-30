@@ -4,6 +4,7 @@
 // import Vue from 'vue';
 import * as Api from '@/api';
 import * as types from '@/store/mutation-types';
+import { defaultProducts } from '@/store/mockData';
 
 const state = {
 	fetchingProducts: false,
@@ -13,7 +14,7 @@ const state = {
 const getters = {
 	fetchingProducts: state => state.fetchingProducts,
 
-	products: state => state.products,
+	products: state => (state.products.length ? state.products : defaultProducts),
 };
 
 const mutations = {

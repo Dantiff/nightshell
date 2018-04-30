@@ -1,32 +1,12 @@
 
 <script>
-import { mapGetters } from 'vuex';
-
 export default {
 	data() {
 		return {
 			clipped: false,
 			fixed: false,
-			primaryLinks: [
-				{ path: { name: 'dashboard.index' }, text: 'Dashboard' },
-				{ path: { name: 'cases.index' }, text: 'Cases' },
-				{ path: { name: 'stakeholders.index' }, text: 'Stakeholders' },
-				{ path: { name: 'users.index' }, text: 'Users' },
-			],
 			profileLinks: [{ path: { name: 'logout.index' }, text: 'Log Out' }],
 		};
-	},
-	computed: {
-		...mapGetters({
-			appTokens: 'appTokens',
-		}),
-	},
-	methods: {},
-	created() {
-		console.log('Index created');
-	},
-	mounted() {
-		console.log('Index mounted');
 	},
 };
 </script>
@@ -37,7 +17,7 @@ export default {
     	fixed
     	app
     	:clipped-left="clipped"
-    	class="app-bar elevation-1"
+    	class="app-bar elevation-1 px-5"
     	color="white"
     >
       <a href="/" class="brand">
@@ -45,7 +25,7 @@ export default {
       </a>
       <v-spacer></v-spacer>
       <v-btn
-      	color="app-c-blue white--text btn-order"
+      	color="app-c-blue white--text btn-order mr-3"
       	href="https://www.xoko.co.ke/order"
       >Order Now </v-btn>
       <div
@@ -77,7 +57,7 @@ export default {
 	      </v-menu>
 	    </div>
     </v-toolbar>
-    <v-content>
+    <v-content px-5>
       <!-- Content will be placed here -->
       <slot></slot>
       <router-view></router-view>
@@ -108,6 +88,11 @@ app-c-gold = #F29419;
 				color app-c-blue !important
 				background-color app-c-gold !important
 .content
-	padding 90px 0px 0px !important
+	padding 90px 48px 0px !important
+	background-color #ebebe6
+@media screen and (min-width: 960px)
+	.app-bar
+		.toolbar__content
+			margin 15px 0 13px 0 !important
 </style>
 
