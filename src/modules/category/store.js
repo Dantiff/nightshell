@@ -31,7 +31,21 @@ const mutations = {
 			.catch(err => {
 				state.fetchingCategories = false;
 				console.log('get categories error', err);
+
+				// Fail: assign store categories to default categories
+				state.categories = [...defaultCategories];
 			});
+	},
+
+	[types.SEARCH_CATEGORIES](state, payload) {
+		const s = payload.search;
+		state.categories = defaultCategories.filter(
+			c =>
+				c.name.toString().includes(s) ||
+				c.address.toString().includes(s) ||
+				c.phone.toString().includes(s) ||
+				c.email.toString().includes(s)
+		);
 	},
 };
 

@@ -103,10 +103,8 @@ app-c-gold = #F29419;
 
 .products-index-container
 	padding 12px 20px
-	background-color #ebebe6
 	.products-table
 		min-height 40vh
-		background-color #fffffe
 		margin 15px
 		.product-row
 			cursor pointer

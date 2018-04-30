@@ -14,7 +14,7 @@ const state = {
 const getters = {
 	fetchingOutlets: state => state.fetchingOutlets,
 
-	outlets: state => state.outlets,
+	outlets: state => (state.outlets.length ? state.outlets : defaultOutlets),
 };
 
 const mutations = {
