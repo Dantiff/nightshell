@@ -21,8 +21,8 @@ export const computeApiScopes = (route, required) => {
 			break;
 		case 'profile':
 			returnValue = {
-				scope: Vue.store.state.auth.authUser.type,
-				fingerprint: Vue.store.state.auth.authUser.attributes.fingerprint,
+				scope: Vue.store.state.auth.appTokens.type,
+				fingerprint: Vue.store.state.auth.appTokens.attributes.fingerprint,
 			};
 			break;
 		default:

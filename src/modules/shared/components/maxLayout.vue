@@ -18,7 +18,7 @@ export default {
 	},
 	computed: {
 		...mapGetters({
-			authUser: 'authUser',
+			appTokens: 'appTokens',
 		}),
 	},
 	methods: {
@@ -29,7 +29,7 @@ export default {
 			let check = true;
 			required.map(r => {
 				if (
-					!this.authUser.attributes.permissions
+					!this.appTokens.attributes.permissions
 						.map(p => (p.status ? p.slug : null))
 						.filter(p => p !== null)
 						.includes(r)
@@ -40,6 +40,12 @@ export default {
 			});
 			return check;
 		},
+	},
+	created() {
+		console.log('Index created');
+	},
+	mounted() {
+		console.log('Index mounted');
 	},
 };
 </script>
@@ -77,7 +83,7 @@ export default {
 		    <v-avatar>
 		      <img src="/static/img/fixit-bg.png" alt="Profile">
 		    </v-avatar>
-      	<span class="hidden-lg-and-down"> {{ authUser.attributes.first_name + ' ' + authUser.attributes.last_name }} </span>
+      	<span class="hidden-lg-and-down"> {{ appTokens.attributes.first_name + ' ' + appTokens.attributes.last_name }} </span>
 	      <v-menu
 	      	offset-y
 		      origin="center center"

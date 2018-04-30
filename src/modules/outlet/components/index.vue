@@ -11,12 +11,13 @@ export default {
 		...mapGetters({
 			fetchingOutlets: 'fetchingOutlets',
 			outlets: 'outlets',
+			appTokens: 'appTokens',
 		}),
 	},
 	watch: {},
 	methods: {},
 	mounted() {
-		this.$store.commit('GET_OUTLETS');
+		this.$store.commit('FETCH_OUTLETS', { ...appTokens });
 	},
 };
 </script>

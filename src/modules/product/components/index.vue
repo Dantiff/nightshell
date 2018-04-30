@@ -16,7 +16,7 @@ export default {
 	watch: {},
 	methods: {},
 	mounted() {
-		this.$store.commit('GET_PRODUCTS');
+		this.$store.commit('FETCH_PRODUCTS');
 	},
 };
 </script>

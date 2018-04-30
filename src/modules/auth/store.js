@@ -8,8 +8,8 @@ import VueNotifications from 'vue-notifications';
 
 const state = {
 	submitLogin: false,
-	authUser: JSON.parse(localStorage.getItem('auth_user')),
-	isAuthenticated: !!localStorage.getItem('auth_user'),
+	appTokens: JSON.parse(localStorage.getItem('app_tokens')),
+	isAuthenticated: !!localStorage.getItem('app_tokens'),
 	submitForgotPassword: false,
 	sessionExpired: false,
 };
@@ -17,7 +17,7 @@ const state = {
 const getters = {
 	submitLogin: state => state.submitLogin,
 
-	authUser: state => state.authUser,
+	appTokens: state => state.appTokens,
 
 	isAuthenticated: state => state.isAuthenticated,
 
@@ -35,11 +35,11 @@ const mutations = {
 
 				state.isAuthenticated = true;
 
-				state.authUser = { ...response.body };
+				state.appTokens = { ...response.body };
 
 				console.log('login success response', response, payload);
 
-				localStorage.setItem('auth_user', JSON.stringify(response.body));
+				localStorage.setItem('app_tokens', JSON.stringify(response.body));
 
 				VueNotifications.success({ title: 'Login Success!' });
 				Vue.router.push({ name: 'outlet.index' });
@@ -52,17 +52,18 @@ const mutations = {
 
 				// Since api is unresponsive, fake login success and proceed to outlets
 				VueNotifications.success({ title: 'Login Success!' });
-				state.authUser = {
-							ConsumerKey: 'FI0Cb59liv4f',
-							ConsumerSecret: '7US7RphRwo'
-						}
-				localStorage.setItem('auth_user', JSON.stringify(state.authUser));
+				state.appTokens = {
+					ConsumerKey: 'FI0Cb59liv4f',
+					ConsumerSecret: '7US7RphRwo',
+				};
+				localStorage.setItem('app_tokens', JSON.stringify(state.appTokens));
 				Vue.router.push({ name: 'outlets.index' });
+				console.log('gone to outlets');
 			});
 	},
 
 	[types.LOGOUT]() {
-		localStorage.removeItem('auth_user');
+		localStorage.removeItem('app_tokens');
 		state.isAuthenticated = false;
 		VueNotifications.success({ title: 'Logout successful!' });
 		Vue.router.push({ name: 'login.index' });
