@@ -7,19 +7,12 @@ export default {
 		return {
 			clipped: false,
 			fixed: false,
-			title: 'FIX',
+			title: 'XOKO',
 			primaryLinks: [
 				{ path: { name: 'dashboard.index' }, text: 'Dashboard', permissions: [] },
 				{ path: { name: 'cases.index' }, text: 'Cases', permissions: [] },
 				{ path: { name: 'stakeholders.index' }, text: 'Stakeholders', permissions: [] },
 				{ path: { name: 'users.index' }, text: 'Users', permissions: ['manage_users'] },
-			],
-			profileLinks: [
-				{ path: { name: 'profile.index' }, text: 'Profile', permissions: [] },
-				{ path: { name: 'logout.index' }, text: 'Logout', permissions: [] },
-			],
-			settingsLinks: [
-				{ path: { name: 'tags.index' }, text: 'Tag Management', permissions: ['manage_tags'] },
 			],
 		};
 	},

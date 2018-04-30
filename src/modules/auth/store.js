@@ -35,11 +35,11 @@ const mutations = {
 
 				state.isAuthenticated = true;
 
-				state.authUser = { ...response.body.data };
+				state.authUser = { ...response.body };
 
 				console.log('login success response', response, payload);
 
-				localStorage.setItem('auth_user', JSON.stringify(response.body.data));
+				localStorage.setItem('auth_user', JSON.stringify(response.body));
 
 				VueNotifications.success({ title: 'Login Success!' });
 				Vue.router.push({ name: 'outlet.index' });
@@ -52,7 +52,12 @@ const mutations = {
 
 				// Since api is unresponsive, fake login success and proceed to outlets
 				VueNotifications.success({ title: 'Login Success!' });
-				Vue.router.push({ name: 'outlet.index' });
+				state.authUser = {
+							ConsumerKey: 'FI0Cb59liv4f',
+							ConsumerSecret: '7US7RphRwo'
+						}
+				localStorage.setItem('auth_user', JSON.stringify(state.authUser));
+				Vue.router.push({ name: 'outlets.index' });
 			});
 	},
 
