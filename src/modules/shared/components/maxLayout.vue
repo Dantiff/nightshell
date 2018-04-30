@@ -7,13 +7,13 @@ export default {
 		return {
 			clipped: false,
 			fixed: false,
-			title: 'XOKO',
 			primaryLinks: [
-				{ path: { name: 'dashboard.index' }, text: 'Dashboard', permissions: [] },
-				{ path: { name: 'cases.index' }, text: 'Cases', permissions: [] },
-				{ path: { name: 'stakeholders.index' }, text: 'Stakeholders', permissions: [] },
-				{ path: { name: 'users.index' }, text: 'Users', permissions: ['manage_users'] },
+				{ path: { name: 'dashboard.index' }, text: 'Dashboard' },
+				{ path: { name: 'cases.index' }, text: 'Cases' },
+				{ path: { name: 'stakeholders.index' }, text: 'Stakeholders' },
+				{ path: { name: 'users.index' }, text: 'Users' },
 			],
+			profileLinks: [{ path: { name: 'logout.index' }, text: 'Log Out' }],
 		};
 	},
 	computed: {
@@ -37,34 +37,23 @@ export default {
     	fixed
     	app
     	:clipped-left="clipped"
-    	class="app-bar"
+    	class="app-bar elevation-1"
+    	color="white"
     >
-      <v-toolbar-title class="brand" v-text="title"></v-toolbar-title>
+      <a href="/" class="brand">
+      	<img src="/static/img/xoko-logo.svg" alt="XOKO" />
+      </a>
       <v-spacer></v-spacer>
-      <router-link
-	      v-for="(l, i) in primaryLinks"
-	      :key="i"
-	      v-if="permissionsCheck(l.permissions)"
-	      :to="l.path"
-	      :exact="false"
-	      active-class="link-active"
-	    >
-	      <div> {{ l.text }} </div>
-	    </router-link>
-      <v-spacer></v-spacer>
-    	<div class="notifications">
-		    <v-badge overlap color="red">
-		      <span slot="badge">3</span>
-		      <v-icon>notifications_none</v-icon>
-		    </v-badge>
-		  </div>
+      <v-btn
+      	color="app-c-blue white--text btn-order"
+      	href="https://www.xoko.co.ke/order"
+      >Order Now </v-btn>
       <div
       	class="profile"
       >
 		    <v-avatar>
 		      <img src="/static/img/emptyAvatar.png" alt="Profile">
 		    </v-avatar>
-      	<span class="hidden-lg-and-down"> {{ appTokens.attributes.first_name + ' ' + appTokens.attributes.last_name }} </span>
 	      <v-menu
 	      	offset-y
 		      origin="center center"
@@ -76,7 +65,6 @@ export default {
 			      <router-link
 				      v-for="(l, i) in profileLinks"
 				      :key="i"
-				      v-if="permissionsCheck(l.permissions)"
 				      :to="l.path"
 				      :exact="true"
 				      active-class="link-active"
@@ -88,33 +76,6 @@ export default {
 	        </v-list>
 	      </v-menu>
 	    </div>
-	    <div 
-	    	class="profile settings-menu"
-	      v-if="permissionsCheck(['manage_tags'])"
-			>
-	      <v-menu
-	      	offset-y
-		      origin="center center"
-		      transition="scale-transition"
-		      bottom
-	      >
-	        <v-icon slot="activator">settings</v-icon>
-	        <v-list class="profile-menu">
-			      <router-link
-				      v-for="(l, i) in settingsLinks"
-				      :key="i"
-				      v-if="permissionsCheck(l.permissions)"
-				      :to="l.path"
-				      :exact="true"
-				      active-class="link-active"
-				    >
-		          <v-list-tile>
-		            <v-list-tile-title>{{ l.text }}</v-list-tile-title>
-		          </v-list-tile>
-		        </router-link>
-	        </v-list>
-	      </v-menu>
-    </div>
     </v-toolbar>
     <v-content>
       <!-- Content will be placed here -->
@@ -130,4 +91,23 @@ export default {
     </v-footer> -->
   </v-app>
 </template>
+
+<style lang="stylus">
+app-c-blue = #193340;
+app-c-gold = #F29419;
+
+.app-bar
+	.toolbar__content
+		margin 21px 0 19px 0
+		.brand
+			img
+				width 150px
+				height 35px
+		.btn-order
+			&:hover
+				color app-c-blue !important
+				background-color app-c-gold !important
+.content
+	padding 90px 0px 0px !important
+</style>
 
