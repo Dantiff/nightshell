@@ -17,7 +17,7 @@ export default {
 	watch: {},
 	methods: {},
 	mounted() {
-		this.$store.commit('FETCH_OUTLETS', { ...appTokens });
+		this.$store.commit('FETCH_OUTLETS', { ...this.appTokens });
 	},
 };
 </script>

@@ -249,7 +249,7 @@ Vue.http.interceptors.push((request, next) => {
 		}
 		if (response.status === 401) {
 			try {
-				localStorage.removeItem('auth_user');
+				localStorage.removeItem('app_tokens');
 				store.state.isAuthenticated = false;
 			} catch (err) {
 				console.log(err);

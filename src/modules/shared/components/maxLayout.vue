@@ -21,26 +21,7 @@ export default {
 			appTokens: 'appTokens',
 		}),
 	},
-	methods: {
-		permissionsCheck(required) {
-			if (!required.length) {
-				return true;
-			}
-			let check = true;
-			required.map(r => {
-				if (
-					!this.appTokens.attributes.permissions
-						.map(p => (p.status ? p.slug : null))
-						.filter(p => p !== null)
-						.includes(r)
-				) {
-					check = false;
-				}
-				return null;
-			});
-			return check;
-		},
-	},
+	methods: {},
 	created() {
 		console.log('Index created');
 	},
@@ -81,7 +62,7 @@ export default {
       	class="profile"
       >
 		    <v-avatar>
-		      <img src="/static/img/fixit-bg.png" alt="Profile">
+		      <img src="/static/img/emptyAvatar.png" alt="Profile">
 		    </v-avatar>
       	<span class="hidden-lg-and-down"> {{ appTokens.attributes.first_name + ' ' + appTokens.attributes.last_name }} </span>
 	      <v-menu
