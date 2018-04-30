@@ -14,7 +14,7 @@ const state = {
 const getters = {
 	fetchingOutlets: state => state.fetchingOutlets,
 
-	outlets: state => (state.outlets.length ? state.outlets : defaultOutlets),
+	outlets: state => state.outlets,
 };
 
 const mutations = {
@@ -31,7 +31,21 @@ const mutations = {
 			.catch(err => {
 				state.fetchingOutlets = false;
 				console.log('get outlets error', err);
+
+				// Fake data on fail
+				state.outlets = [...defaultOutlets];
 			});
+	},
+
+	[types.SEARCH_OUTLETS](state, payload) {
+		const s = payload.search;
+		state.outlets = defaultOutlets.filter(
+			o =>
+				o.name.toString().includes(s) ||
+				o.address.toString().includes(s) ||
+				o.phone.toString().includes(s) ||
+				o.email.toString().includes(s)
+		);
 	},
 };
 

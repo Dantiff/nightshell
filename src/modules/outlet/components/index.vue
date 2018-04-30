@@ -5,7 +5,19 @@ import { mapGetters } from 'vuex';
 
 export default {
 	data() {
-		return {};
+		return {
+			searchOutlets: '',
+			headers: [
+				{
+					text: 'Name',
+					align: 'left',
+					value: 'name',
+				},
+				{ text: 'Address', value: 'address' },
+				{ text: 'Phone Number', value: 'phone' },
+				{ text: 'Email', value: 'email' },
+			],
+		};
 	},
 	computed: {
 		...mapGetters({
@@ -14,10 +26,15 @@ export default {
 			appTokens: 'appTokens',
 		}),
 	},
-	watch: {},
+	watch: {
+		searchOutlets() {
+			this.$store.commit('SEARCH_OUTLETS', { search: this.searchOutlets.toLowerCase() });
+		},
+	},
 	methods: {},
 	mounted() {
 		this.$store.commit('FETCH_OUTLETS', { ...this.appTokens });
+		console.log('Mounted with data', this.outlets);
 	},
 };
 </script>
@@ -26,18 +43,44 @@ export default {
 		<v-container fluid grid-list-md class="products-index-container">
 			<v-layout row wrap>
 				<v-flex
-					xs12 sm6
+					xs12
 					pa-0
-					v-for="(graph, i) in 4"
-					:key="i"
 				>
-					<v-card
-						class="products-card elevation-1"
-					>
-						<v-card-text class="welcome">
-							the products get here
-						</v-card-text>
-					</v-card>
+					<v-card-title class="pb-0 title3"> 
+						<div class="content-title"> Available Outlets: {{ outlets.length }} </div>
+						<v-spacer></v-spacer>
+						<div class="search">
+							<v-text-field 
+								prepend-icon="search" 
+								label="Search"
+								hide-details 
+								single-line 
+								solo
+								color="app-c-primary"
+								class=""
+								v-model="searchOutlets"
+							></v-text-field>
+						</div>
+					</v-card-title>
+				</v-flex>
+				<v-flex
+					xs12
+					pa-0
+				>
+				  <v-data-table
+				    :headers="headers"
+				    :items="outlets"
+				    hide-actions
+				    :loading="fetchingOutlets"
+				    class="products-card elevation-1"
+				  >
+				    <template slot="items" slot-scope="props">
+				      <td>{{ props.item.name }}</td>
+				      <td class="text-xs-left">{{ props.item.address }}</td>
+				      <td class="text-xs-left">{{ props.item.phone }}</td>
+				      <td class="text-xs-left">{{ props.item.email }}</td>
+				    </template>
+				  </v-data-table>
 				</v-flex>
 			</v-layout>
 		</v-container>

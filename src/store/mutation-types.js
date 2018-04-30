@@ -20,13 +20,16 @@ export const FORGOT_PASSWORD = 'FORGOT_PASSWORD';
  * Outlet module mutation types
  */
 export const FETCH_OUTLETS = 'FETCH_OUTLETS';
+export const SEARCH_OUTLETS = 'SEARCH_OUTLETS';
 
 /**
  * Outlet module mutation types
  */
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+export const SEARCH_CATEGORIES = 'SEARCH_CATEGORIES';
 
 /**
  * Outlet module mutation types
  */
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
+export const SEARCH_PRODUCTS = 'SEARCH_PRODUCTS';
