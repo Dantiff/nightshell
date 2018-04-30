@@ -42,7 +42,7 @@ export default {
 
 <template>
 	<v-min-layout>
-		<v-flex slot="get-mini-frame" xs10 offset-xs1 sm6 offset-sm3 md4 offset-md4 class="auth-container limited-login-pane">
+		<v-flex slot="get-mini-frame" xs10 offset-xs1 sm6 offset-sm3 md4 offset-md4 class="auth-container">
 			<v-container>
 				<v-card-text class="xoko-logo px-0 text-xs-center">
 					<img src="/static/img/xoko-logo.svg" alt="XOKO" />
@@ -98,7 +98,7 @@ export default {
 							</v-flex>
 							<v-flex xs12 login-footer>
 								<div class="xs12 text-xs-center">
-								 <router-link :to="{ name: 'forgot.index' }" class="app-link-dark">Forgot Password? </router-link>
+								 <router-link :to="{ name: 'forgot.index' }">Forgot Password? </router-link>
 								</div>
 							</v-flex>
 						</v-layout>

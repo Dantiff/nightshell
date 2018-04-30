@@ -40,11 +40,18 @@ export default {
 </script>
 
 <template>
-	<v-min-layout class="auth-container">
-		<v-flex slot="get-mini-frame" xs10 offset-xs1 sm6 offset-sm3 md4 offset-md4 class="limited-login-pane">
+	<v-min-layout>
+		<v-flex slot="get-mini-frame" xs10 offset-xs1 sm6 offset-sm3 md4 offset-md4 class="auth-container">
       <v-container>
-        <v-card-text class="title3 px-2"> Reset your PremiumEssayWriters password </v-card-text>
-        <v-card-text class="title8 px-2 pt-0"> Submit your email address and we'll send you a link to reset your password </v-card-text>
+				<v-card-text class="xoko-logo px-0 text-xs-center">
+					<img src="/static/img/xoko-logo.svg" alt="XOKO" />
+				</v-card-text>
+        <v-card-text class="title3 px-2 app-c-primary--text text-xs-center">
+        	Reset your password
+        </v-card-text>
+        <v-card-text class="title8 px-2 pt-0 text-xs-center"> 
+        	Submit your email address and we'll send you a link to reset your password 
+        </v-card-text>
         <form @submit.prevent="validateForm" class="app-form">
 				  <v-container grid-list-md text-xs-center class="no-padding">
 				    <v-layout row wrap>
@@ -60,6 +67,9 @@ export default {
 	                data-vv-name="email"
 	                v-validate="'required|email'"
 	                hint="example@premiumer.io"
+	                solo
+									color="app-c-primary"
+	                class="elevation-0"
 	              />
 				      </v-flex>
 	            <v-flex xs12 login-footer>
@@ -68,7 +78,7 @@ export default {
 	                 	type="submit"
 	                 	:disabled="this.errors.items.length !== 0"
 	                 	:loading="submitForgotPassword"
-	                 	class="btn-blue no-margin px-3 app-btn"
+	                 	class="app-c-blue px-3 app-btn"
 	                 	primary
 	                 	dark
 	                 >Submit</v-btn>
@@ -76,7 +86,7 @@ export default {
 	            </v-flex>
 	            <v-flex xs12 login-footer>
 	              <div class="xs12 text-xs-center">
-	               <router-link :to="{ name: 'login.index' }" class="app-link-dark"> Have an account? Sign in </router-link>
+	               <router-link :to="{ name: 'login.index' }"> Have an account? Sign in </router-link>
 	              </div>
 	            </v-flex>
 				    </v-layout>
